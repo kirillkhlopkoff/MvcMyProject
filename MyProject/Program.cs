@@ -61,6 +61,7 @@ app.UseEndpoints(endpoints => {
     endpoints.MapControllerRoute(name: "admin", pattern: "{area:exists}/{controller=Home}/{action=Index}/{id?}"); //тут нужно будет создать зону админа как в прошлом уроке
     endpoints.MapControllerRoute(name: "default", pattern: "{controller=Home}/{action=Index}/{id?}"); //это стандарт
     endpoints.MapControllerRoute(name: "account", pattern: "{controller=Account}/{action=Index}/{id?}"); // это дл€ аккаунтконтроллера
+    endpoints.MapControllerRoute(name: "realestate", pattern: "{controller=RealEstate}/{action=Index}/{id?}"); // это дл€ контроллера объ€влений
 });
 
 app.Run();

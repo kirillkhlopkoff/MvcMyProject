@@ -2,6 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using MyProject.Models;
 using System.Collections.Generic;
+using System.Reflection.Emit;
 
 namespace MyProject.Data
 {
@@ -14,10 +15,14 @@ namespace MyProject.Data
         // Определяйте наборы таблиц в базе данных для пользователей и ролей
         public DbSet<ApplicationUser> ApplicationUsers { get; set; }
         public DbSet<ApplicationRole> ApplicationRoles { get; set; }
+        public DbSet<RealEstate> RealEstates { get; set; }
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
             base.OnModelCreating(builder);
+            builder.Entity<RealEstate>()
+            .Property(p => p.Price)
+            .HasColumnType("decimal(18,2)");
         }
     }
 }
